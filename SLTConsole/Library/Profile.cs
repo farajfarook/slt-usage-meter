@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SLTConsole.Library
 {
-    class Profile
+    public class Profile
     {        
-        private float downlink;
+        private float downlink = 0f;
 
         public float Downlink
         {
@@ -16,7 +16,7 @@ namespace SLTConsole.Library
             set { downlink = value; }
         }
 
-        private float uplink;
+        private float uplink = 0f;
 
         public float Uplink
         {
@@ -24,7 +24,7 @@ namespace SLTConsole.Library
             set { uplink = value; }
         }
 
-        private float totalfup;
+        private float totalfup = 0f;
 
         public float Totalfup
         {
@@ -32,7 +32,7 @@ namespace SLTConsole.Library
             set { totalfup = value; }
         }
 
-        private float totalrem;
+        private float totalrem = 0f;
 
         public float Totalrem
         {
@@ -40,7 +40,7 @@ namespace SLTConsole.Library
             set { totalrem = value; }
         }
 
-        private float peakfup;
+        private float peakfup = 0f;
 
         public float Peakfup
         {
@@ -48,12 +48,42 @@ namespace SLTConsole.Library
             set { peakfup = value; }
         }
 
-        private float peakrem;
+        private float peakrem = 0f;
 
-        public float PeakRem
+        public float Peakrem
         {
             get { return peakrem; }
             set { peakrem = value; }
+        }
+
+        public float PeakRemGb
+        {
+            get { return peakrem / 1073741824; }
+        }
+
+        public float PeakGb
+        {
+            get { return PeakRemGb * 100 / (100 - peakfup); }
+        }
+
+        public float TotalRemGb
+        {
+            get { return totalrem / 1073741824; }
+        }
+
+        public float TotalGb
+        {
+            get { return TotalRemGb * 100 / (100 - totalfup); }
+        }
+
+        public String PeakStatus
+        {
+            get { return PeakRemGb.ToString("0.0") + " / " + PeakGb.ToString("0.0"); }
+        }
+
+        public String TotalStatus
+        {
+            get { return TotalRemGb.ToString("0.0") + " / " + TotalGb.ToString("0.0"); }
         }
     }
 }

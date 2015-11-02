@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             Background="White"
-             d:DesignHeight="300" Width="595">
+             mc:Ignorable="d"                          
+             d:DesignHeight="135" Width="595">
     <Grid>
-        
+        <Label HorizontalAlignment="Left" Margin="19,51,0,0" VerticalAlignment="Top" Height="38" Width="253" FontSize="18" Name="lblPeakStatus" Content="xx/xx" FontFamily="Segoe UI Semibold"/>
+        <Label HorizontalAlignment="Left" Margin="291,51,0,0" VerticalAlignment="Top" Height="38" Width="253" FontSize="18" Name="lblTotalStatus" Content="xx/xx" FontFamily="Segoe UI Semibold"/>
+        <Label Content="Peak Usage&#xD;&#xA;" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="81" Height="27"/>
+        <Label Content="Total Usage" HorizontalAlignment="Left" Margin="291,24,0,0" VerticalAlignment="Top" Width="81" Height="27"/>
+
     </Grid>
 </UserControl>
