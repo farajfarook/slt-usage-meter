@@ -6,10 +6,10 @@
              mc:Ignorable="d"                          
              d:DesignHeight="135" Width="595">
     <Grid>
-        <Label HorizontalAlignment="Left" Margin="19,51,0,0" VerticalAlignment="Top" Height="38" Width="253" FontSize="18" Name="lblPeakStatus" Content="xx/xx" FontFamily="Segoe UI Semibold"/>
-        <Label HorizontalAlignment="Left" Margin="291,51,0,0" VerticalAlignment="Top" Height="38" Width="253" FontSize="18" Name="lblTotalStatus" Content="xx/xx" FontFamily="Segoe UI Semibold"/>
-        <Label Content="Peak Usage&#xD;&#xA;" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="81" Height="27"/>
-        <Label Content="Total Usage" HorizontalAlignment="Left" Margin="291,24,0,0" VerticalAlignment="Top" Width="81" Height="27"/>
+        <Label HorizontalAlignment="Left" Margin="109,47,0,0" VerticalAlignment="Top" Height="38" Width="143" FontSize="18" Name="lblPeakStatus" Content="xx/xx" FontFamily="Segoe UI Semibold"/>
+        <Label HorizontalAlignment="Left" Margin="357,47,0,0" VerticalAlignment="Top" Height="38" Width="178" FontSize="18" Name="lblTotalStatus" Content="xx/xx" FontFamily="Segoe UI Semibold"/>
+        <Label Content="Peak Usage&#xA;( GBs )" HorizontalAlignment="Left" Margin="23,53,0,0" VerticalAlignment="Top" Width="81" Height="27" FontStyle="Italic"/>
+        <Label Content="Total Usage" HorizontalAlignment="Left" Margin="271,53,0,0" VerticalAlignment="Top" Width="81" Height="27" FontStyle="Italic"/>
 
     </Grid>
 </UserControl>

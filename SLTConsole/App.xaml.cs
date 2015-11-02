@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Win32;
 using SLTConsole.Library;
 
 namespace SLTConsole
@@ -17,6 +18,15 @@ namespace SLTConsole
         private SLTConnection connection = new SLTConnection();
         public SLTConnection Connection { get { return connection; } }
 
+        private RegistryKey key;
 
+        public RegistryKey Key { get { return key; } }
+
+        public App()
+        {
+            key = Registry.LocalMachine.OpenSubKey("Software", true);
+            key.CreateSubKey("SLTConsole");
+            key = key.OpenSubKey("SLTConsole", true);
+        }
     }
 }

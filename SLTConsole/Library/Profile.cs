@@ -78,12 +78,12 @@ namespace SLTConsole.Library
 
         public String PeakStatus
         {
-            get { return PeakRemGb.ToString("0.0") + " / " + PeakGb.ToString("0.0"); }
+            get { return PeakRemGb.ToString("0.0") + " / " + PeakGb.ToString("0.0") + " GBs"; }
         }
 
         public String TotalStatus
         {
-            get { return TotalRemGb.ToString("0.0") + " / " + TotalGb.ToString("0.0"); }
+            get { return TotalRemGb.ToString("0.0") + " / " + TotalGb.ToString("0.0") + " GBs"; }
         }
     }
 }
