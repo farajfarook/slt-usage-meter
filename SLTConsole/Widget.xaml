@@ -1,0 +1,26 @@
+﻿<Controls:MetroWindow x:Class="SLTConsole.Widget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="SLT Console" Height="164" Width="514" ResizeMode="NoResize" Name="mainWindow">    
+    <Grid Margin="0,0,4,5" Name="display">
+    </Grid>
+    <Controls:MetroWindow.Resources>
+        <Storyboard x:Name="shakeEffect" x:Key="shakeEffect"
+                    TargetName="mainWindow"
+                    TargetProperty ="Left">
+            <DoubleAnimation                               
+                By="5"
+                Duration="0:0:0.05"                 
+                AutoReverse="True"
+                RepeatBehavior="3x"
+                FillBehavior="Stop">
+                <DoubleAnimation.EasingFunction>
+                    <BounceEase Bounces="2" EasingMode="EaseOut" 
+                        Bounciness="2" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </Controls:MetroWindow.Resources>
+</Controls:MetroWindow>
