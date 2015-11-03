@@ -4,14 +4,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"      
         xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        ShowInTaskbar="False" Loaded="mainWindow_Loaded"
-        Title="SLT Console" Height="130" Width="500" ResizeMode="NoResize" Name="mainWindow">
-    <tb:TaskbarIcon Name="tbi">
-        <tb:TaskbarIcon.TrayPopup>
-            <Grid Margin="0,0,4,5" Name="display"></Grid>
-        </tb:TaskbarIcon.TrayPopup>
-    </tb:TaskbarIcon>
+        ShowInTaskbar="False" Loaded="mainWindow_Loaded"       
+        Title="SLT Console" Height="130" Width="500" ResizeMode="NoResize" Name="mainWindow" Closing="mainWindow_Closing">
+    <Grid Margin="0,0,4,5" Name="display"></Grid>
     <Controls:MetroWindow.Resources>
+        <ContextMenu x:Name="contextMenu" x:Key="contextMenu">
+            <MenuItem Header="Dashboard" Name="menuShow" Click="menuShow_Click"></MenuItem>
+            <MenuItem Header="Auto Startup (on/off)" Name="menuStartup" Click="menuStartup_Click"></MenuItem>
+            <MenuItem Header="Exit" Name="menuExit" Click="menuExit_Click"></MenuItem>
+        </ContextMenu>
         <Storyboard x:Name="shakeEffect" x:Key="shakeEffect"
                     TargetName="mainWindow"
                     TargetProperty ="Left">

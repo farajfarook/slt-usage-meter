@@ -30,6 +30,7 @@ namespace SLTConsole
         private App app = ((App)Application.Current);
         private LoginControl loginControl = new LoginControl();
         private WidgetControl widgetControl = new WidgetControl();
+        private TaskbarIcon tbi = new TaskbarIcon();        
 
         public Widget()
         {
@@ -42,14 +43,42 @@ namespace SLTConsole
             }
             InitDisplay();
             loginControl.btnLogin.Click += btnLogin_Click;
-            widgetControl.btnLogout.Click += btnLogout_Click;
-            //(this.FindResource("shakeEffect") as Storyboard).Begin();            
+            widgetControl.btnLogout.Click += btnLogout_Click;                   
             InitTaskBarIcon();
         }
 
+        class TaskBarItemDoubleClick : ICommand
+        {
+            Widget widget;
+
+            public TaskBarItemDoubleClick(Widget widget)
+            {
+                this.widget = widget;
+            }
+
+            public bool CanExecute(object parameter)
+            {
+                return true;
+            }
+
+            public event EventHandler CanExecuteChanged;
+
+            public void Execute(object parameter)
+            {
+                widget.SetVisible(widget.Visibility != Visibility.Visible);
+            }
+        }
+
+        private void SetVisible(bool visible)
+        {
+            this.Visibility = (visible) ? Visibility.Visible : Visibility.Collapsed;
+        }        
+
         private void InitTaskBarIcon()
         {
-            tbi.Icon = SLTConsole.Properties.Resources.icon;            
+            tbi.Icon = SLTConsole.Properties.Resources.icon;
+            tbi.DoubleClickCommand = new TaskBarItemDoubleClick(this);            
+            tbi.ContextMenu = this.FindResource("contextMenu") as ContextMenu;
         }
 
         void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -59,11 +88,12 @@ namespace SLTConsole
         }
 
         private void InitDisplay()
-        {
+        {            
             display.Children.Clear();
             if (!app.Connection.IsLogged)
             {                
                 display.Children.Add(loginControl);
+                tbi.ToolTipText = "Please login with SLT portal credentials";
             }
             else
             {
@@ -72,6 +102,7 @@ namespace SLTConsole
                 widgetControl.lblPeakStatus.Content = profile.PeakStatus;
                 widgetControl.lblTotalStatus.Content = profile.TotalStatus;
                 display.Children.Add(widgetControl);
+                tbi.ToolTipText = "Peak: " + profile.PeakStatus + ", Total: " + profile.TotalStatus;
             }
         }
 
@@ -93,8 +124,41 @@ namespace SLTConsole
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
-            this.Left = desktopWorkingArea.Right - this.Width;
+            this.Left = desktopWorkingArea.Right - this.Width - 40;
             this.Top = desktopWorkingArea.Bottom - this.Height;
+        }
+
+        private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            SetVisible(false);
+        }
+
+        private void menuShow_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisible(Visibility != Visibility.Visible);
+        }
+
+        private void menuExit_Click(object sender, RoutedEventArgs e)
+        {
+            app.Shutdown();
+        }
+
+        private void menuStartup_Click(object sender, RoutedEventArgs e)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                if (key.GetValue("SLTConsole", null) != null)
+                {
+                    key.DeleteValue("SLTConsole", false);
+                    tbi.ShowBalloonTip("Automatic Startup - Disabled", "SLT Console will not startup with windows.", BalloonIcon.Info);
+                }
+                else
+                {
+                    key.SetValue("SLTConsole", "\"" + System.Reflection.Assembly.GetExecutingAssembly().Location + "\"");
+                    tbi.ShowBalloonTip("Automatic Startup - Enabled", "SLT Console will startup with windows.", BalloonIcon.Info);
+                }
+            }
         }
     }
 }
