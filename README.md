@@ -1,3 +1,3 @@
-# slt-usage-console
+# slt-usage-meter
 
-Sri Lanka Telecom ASDL Usage Console
+Sri Lanka Telecom ASDL Usage Meter for Windows
