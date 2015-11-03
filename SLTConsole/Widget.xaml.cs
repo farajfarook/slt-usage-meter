@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Hardcodet.Wpf.TaskbarNotification;
 using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using SLTConsole.Library;
@@ -26,8 +28,8 @@ namespace SLTConsole
     public partial class Widget : MetroWindow
     {
         private App app = ((App)Application.Current);
-        LoginControl loginControl = new LoginControl();
-        WidgetControl widgetControl = new WidgetControl();
+        private LoginControl loginControl = new LoginControl();
+        private WidgetControl widgetControl = new WidgetControl();
 
         public Widget()
         {
@@ -41,7 +43,13 @@ namespace SLTConsole
             InitDisplay();
             loginControl.btnLogin.Click += btnLogin_Click;
             widgetControl.btnLogout.Click += btnLogout_Click;
-            (this.FindResource("shakeEffect") as Storyboard).Begin();
+            //(this.FindResource("shakeEffect") as Storyboard).Begin();            
+            InitTaskBarIcon();
+        }
+
+        private void InitTaskBarIcon()
+        {
+            tbi.Icon = SLTConsole.Properties.Resources.icon;            
         }
 
         void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -85,7 +93,7 @@ namespace SLTConsole
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
-            this.Left = desktopWorkingArea.Right - this.Width - 35;
+            this.Left = desktopWorkingArea.Right - this.Width;
             this.Top = desktopWorkingArea.Bottom - this.Height;
         }
     }
