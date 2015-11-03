@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("SLTConsole")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("enbiso")]
 [assembly: AssemblyProduct("SLTConsole")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2015")]
+[assembly: AssemblyCopyright("Copyright © enbiso 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
