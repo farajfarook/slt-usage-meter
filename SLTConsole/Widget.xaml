@@ -3,7 +3,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" Loaded="mainWindow_Loaded"
-        Title="SLT Console" Height="164" Width="514" ResizeMode="NoResize" Name="mainWindow">    
+        Title="SLT Console" Height="130" Width="500" ResizeMode="NoResize" Name="mainWindow">    
     <Grid Margin="0,0,4,5" Name="display">
     </Grid>
     <Controls:MetroWindow.Resources>

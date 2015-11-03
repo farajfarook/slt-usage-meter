@@ -36,11 +36,18 @@ namespace SLTConsole
             {                
                 loginControl.txtUsername.Text = app.Key.GetValue("slt_user").ToString();
                 loginControl.txtPassword.Password = app.Key.GetValue("slt_password").ToString();
-                //app.Connection.Login(app.Key.GetValue("slt_user").ToString(), app.Key.GetValue("slt_pass").ToString());                
+                btnLogin_Click(null, null);               
             }
             InitDisplay();
             loginControl.btnLogin.Click += btnLogin_Click;
+            widgetControl.btnLogout.Click += btnLogout_Click;
             (this.FindResource("shakeEffect") as Storyboard).Begin();
+        }
+
+        void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            app.Connection.Logout();
+            InitDisplay();
         }
 
         private void InitDisplay()

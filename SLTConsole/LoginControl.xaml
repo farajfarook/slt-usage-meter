@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d"              
-             d:DesignHeight="136" d:DesignWidth="525">
+             d:DesignHeight="100" d:DesignWidth="500">
     <Grid Name="gridLogin">
-        <Label Content="Username&#xD;&#xA;" HorizontalAlignment="Left" Margin="34,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.269" Height="26" />
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="34,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" FontSize="14" Padding="5" Name="txtUsername"/>
-        <Label Content="Password&#xA;" HorizontalAlignment="Left" Margin="209,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.269" Height="26"/>
-        <PasswordBox HorizontalAlignment="Left" Height="40" Margin="209,63,0,0" VerticalAlignment="Top" Width="157" FontSize="14" Padding="5" Name="txtPassword"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="385,63,0,0" VerticalAlignment="Top" Width="92" Height="40" Name="btnLogin"/>
+        <Label Content="Username&#xD;&#xA;" HorizontalAlignment="Left" Margin="26,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.269" Height="26" />
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="26,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Padding="5" Name="txtUsername"/>
+        <Label Content="Password&#xA;" HorizontalAlignment="Left" Margin="200,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.269" Height="26"/>
+        <PasswordBox HorizontalAlignment="Left" Height="40" Margin="200,44,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Padding="5" Name="txtPassword"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="374,44,0,0" VerticalAlignment="Top" Width="100" Height="40" Name="btnLogin"/>
     </Grid>
 </UserControl>

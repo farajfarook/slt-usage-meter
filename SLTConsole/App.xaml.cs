@@ -24,7 +24,7 @@ namespace SLTConsole
 
         public App()
         {
-            key = Registry.LocalMachine.OpenSubKey("Software", true);
+            key = Registry.CurrentUser.OpenSubKey("Software", true);
             key.CreateSubKey("SLTConsole");
             key = key.OpenSubKey("SLTConsole", true);
         }

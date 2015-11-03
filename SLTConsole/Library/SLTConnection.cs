@@ -34,6 +34,12 @@ namespace SLTConsole.Library
             return isLogged;
         }
 
+        public void Logout()
+        {
+            isLogged = false;
+            client.CookieContainer = new System.Net.CookieContainer();
+        }
+
         public RestClient Client { get { return client; } }
     }
 }
