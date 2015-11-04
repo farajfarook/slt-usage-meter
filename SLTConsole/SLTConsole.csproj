@@ -37,9 +37,6 @@
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FontAwesome.WPF">
-      <HintPath>..\packages\FontAwesome.WPF.4.4.0.6\lib\FontAwesome.WPF.dll</HintPath>
-    </Reference>
     <Reference Include="Hardcodet.Wpf.TaskbarNotification">
       <HintPath>..\packages\SignedBuild-Hardcodet.NotifyIcon.Wpf.1.0.5\lib\net35\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
     </Reference>

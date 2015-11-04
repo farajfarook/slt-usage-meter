@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -30,7 +31,8 @@ namespace SLTConsole
         private App app = ((App)Application.Current);
         private LoginControl loginControl = new LoginControl();
         private WidgetControl widgetControl = new WidgetControl();
-        private TaskbarIcon tbi = new TaskbarIcon();        
+        private TaskbarIcon tbi = new TaskbarIcon();     
+        private Timer profileUpdateTimer = new System.Timers.Timer();
 
         public Widget()
         {
@@ -43,7 +45,9 @@ namespace SLTConsole
             }
             InitDisplay();
             loginControl.btnLogin.Click += btnLogin_Click;
-            widgetControl.btnLogout.Click += btnLogout_Click;                   
+            widgetControl.btnLogout.Click += btnLogout_Click;
+            profileUpdateTimer.Elapsed += new ElapsedEventHandler(FetchAndDisplayProfile);
+            profileUpdateTimer.Interval = 10000;
             InitTaskBarIcon();
         }
 
@@ -90,6 +94,7 @@ namespace SLTConsole
         private void InitDisplay()
         {            
             display.Children.Clear();
+            profileUpdateTimer.Enabled = app.Connection.IsLogged;
             if (!app.Connection.IsLogged)
             {                
                 display.Children.Add(loginControl);
@@ -97,13 +102,20 @@ namespace SLTConsole
             }
             else
             {
-                ProfileManager profileManager = new ProfileManager(app.Connection);
-                Profile profile = profileManager.GetProfile();
+                display.Children.Add(widgetControl);
+                FetchAndDisplayProfile(null, null);
+            }
+        }
+
+        private void FetchAndDisplayProfile(object source, ElapsedEventArgs e)
+        {
+            ProfileManager profileManager = new ProfileManager(app.Connection);
+            Profile profile = profileManager.GetProfile();
+            this.Dispatcher.Invoke((Action)(() => {
                 widgetControl.lblPeakStatus.Content = profile.PeakStatus;
                 widgetControl.lblTotalStatus.Content = profile.TotalStatus;
-                display.Children.Add(widgetControl);
                 tbi.ToolTipText = "Peak: " + profile.PeakStatus + ", Total: " + profile.TotalStatus;
-            }
+            }));
         }
 
         void btnLogin_Click(object sender, RoutedEventArgs e)
