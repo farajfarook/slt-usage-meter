@@ -1,3 +1,3 @@
 # slt-usage-meter
 
-Sri Lanka Telecom ASDL Usage Meter for Windows
+Sri Lanka Telecom Broadband/ASDL Usage Meter for Windows
