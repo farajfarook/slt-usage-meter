@@ -2,7 +2,7 @@
 
 Sri Lanka Telecom Broadband/ASDL Usage Meter for Windows
 
-You may download the windows setup executables from this link: [SLTConsole.Setup.x86.msi](https://github.com/enbiso/slt-usage-meter/releases/download/v1.1/SLTConsole.Setup.x86.msi)
+You may download the windows setup executables from this link: [SLTConsole.Setup.x86.msi](https://github.com/enbiso/slt-usage-meter/releases)
 
 ## Screenshots ##
 
