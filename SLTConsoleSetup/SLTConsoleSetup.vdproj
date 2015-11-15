@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_50EE2C6FC5910FC2A7B5215A57D34198"
-        "OwnerKey" = "8:_6E7CF44FF3A64E5698A3B4C4AE9244C8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6E7CF44FF3A64E5698A3B4C4AE9244C8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -85,12 +79,6 @@
         "OwnerKey" = "8:_F4F7606A90B86DADBDBF7D02B85CCD57"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_50EE2C6FC5910FC2A7B5215A57D34198"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -116,6 +104,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -140,6 +136,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -170,37 +174,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_50EE2C6FC5910FC2A7B5215A57D34198"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FontAwesome.WPF, Version=4.4.0.35868, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_50EE2C6FC5910FC2A7B5215A57D34198"
-                    {
-                    "Name" = "8:FontAwesome.WPF.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:FontAwesome.WPF.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_F818DE2210EE4EF0AA3A7C3DFD8485D5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9003D6394C8950FFA17B38A7540851FF"
             {
             "AssemblyRegister" = "3:1"
@@ -392,15 +365,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SLTConsole"
-        "ProductCode" = "8:{CC3860B8-AFC1-47AE-957A-23A36FE07F1C}"
-        "PackageCode" = "8:{5D9CD76A-7D82-4A99-A9C4-C7A36CF35D6A}"
+        "ProductCode" = "8:{82BD7E0B-FFB1-4D15-BEF8-563DA6E2ED58}"
+        "PackageCode" = "8:{164E6172-79FA-46EE-8AE6-29D5A4DC1A5D}"
         "UpgradeCode" = "8:{C08B3D87-3606-40FF-AE40-636FE4D3612F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:enbiso"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -942,7 +915,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6E7CF44FF3A64E5698A3B4C4AE9244C8"
             {
-            "SourcePath" = "8:..\\SLTConsole\\obj\\Release\\SLTConsole.exe"
+            "SourcePath" = "8:..\\SLTConsole\\obj\\Debug\\SLTConsole.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F818DE2210EE4EF0AA3A7C3DFD8485D5"

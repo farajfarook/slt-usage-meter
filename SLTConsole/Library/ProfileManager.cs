@@ -19,8 +19,15 @@ namespace SLTConsole.Library
 
         public Profile GetProfile()
         {
-            RestRequest request = new RestRequest(SERVICE_URL, Method.GET);
-            return connection.Client.Execute<Profile>(request).Data;
+            try
+            {
+                RestRequest request = new RestRequest(SERVICE_URL, Method.GET);
+                return connection.Client.Execute<Profile>(request).Data;
+            }
+            catch (Exception)
+            {
+                return new Profile();
+            }
         }
     }
 }

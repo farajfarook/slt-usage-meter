@@ -29,9 +29,16 @@ namespace SLTConsole.Library
             RestRequest loginRequest = new RestRequest("login/j_security_check", Method.POST);
             loginRequest.AddParameter(USERNAME_KEY, username);
             loginRequest.AddParameter(PASSWORD_KEY, password);
-            RestResponse response = (RestResponse)client.Execute(loginRequest);
-            isLogged = !response.Content.Contains("login_error");
-            return isLogged;
+            try
+            {
+                RestResponse response = (RestResponse)client.Execute(loginRequest);
+                isLogged = !response.Content.Contains("login_error");
+                return isLogged;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public void Logout()
